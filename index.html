@@ -26,11 +26,11 @@
         </div>
     </section>
     <hr style="margin: 0 50px;">
-    <section>
+    <section style="align-items: flex-start;">
         <section>
             <textarea name="transactions" id="transactions" readonly></textarea>
         </section>
-        <section class="ver" style="padding: 5px;">
+        <section class="ver" style="flex: 1; padding: 0;">
             <h2>Account Overview</h2>
             <section style="margin-top: -10px;">
                 <img src="./user.png" style="width: 100px;margin-right:20px;" alt="">
@@ -76,6 +76,33 @@
                     <input type="number" name="value" id="value">
                     <br>
                     <button onclick="proceed()">Proceed</button>
+                </div>
+            </section>
+        </section>
+        <section class="ver" style="flex: 1; padding: 0;">
+            <h2>Financial Tools</h2>
+            <section style="margin-top: -10px;">
+                <img src="./calculator.png" style="width: 100px;margin-right:20px;" alt="">
+                <div>
+                    <h3>
+                        Currency Converter
+                    </h3>
+                    <label for="input">Input balance:</label>
+                    <input value="1000" type="number" name="input" id="input">
+                    <br>
+                    <label for="output">Output balance:</label>
+                    <input value="1000" type="number" name="output" id="output" readonly>
+                    <br>
+                    <label for="currency">
+                        Input Currency:
+                    </label>
+                    <select name="currency" id="currency">
+                        <option value="USD">USD</option>
+                    </select>
+                    <br>
+                    <button onclick="change()">
+                        Change
+                    </button>
                 </div>
             </section>
         </section>
