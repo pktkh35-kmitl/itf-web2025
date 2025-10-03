@@ -11,23 +11,23 @@ function addlog(text) {
 }
 
 function change() {
-    addlog(", Current account balance: " + account.value + ", Current cash balanec: " + cash.value)
+    addlog(", Current account balance: " + account.value + ", Current cash balance: " + cash.value)
 }
 
 function proceed() {
     if (action.value === "deposit" && (Number(cash.value) >= Number(value.value))) {
         cash.value = Number(cash.value) - Number(value.value)
         account.value = Number(account.value) + Number(value.value)
-        addlog(", Current account balance: " + account.value + ", Current cash balanec: " + cash.value)
+        addlog(", Current account balance: " + account.value + ", Current cash balance: " + cash.value)
         return
     } else if (action.value === "withdraw" && (Number(account.value) >= Number(value.value))) {
         account.value = Number(account.value) - Number(value.value)
         cash.value = Number(cash.value) + Number(value.value)
-        addlog(", Current account balance: " + account.value + ", Current cash balanec: " + cash.value)
+        addlog(", Current account balance: " + account.value + ", Current cash balance: " + cash.value)
         return
     }
 
     addlog(", Couldn't deposit entered balance. (Insufficient cash balance)")
 }
 
-addlog(", Current account balance: " + account.value + ", Current cash balanec: " + cash.value)
+addlog(", Current account balance: " + account.value + ", Current cash balance: " + cash.value)
