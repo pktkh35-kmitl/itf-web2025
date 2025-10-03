@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
+
+* {
+    font-family: "Noto Sans Thai";
+}
+
 body {
     margin: 0;
 }
@@ -28,10 +34,6 @@ section div {
     flex: 1;
 }
 
-section img {
-    width: 200px;
-}
-
 section textarea {
     cursor: help;
     width: 100%;
@@ -40,7 +42,7 @@ section textarea {
     border: 2px solid gray;
     padding: 10px;
     border-radius: 10px;
-    background: rgb(0,0,0,.5);
+    background: #121212;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

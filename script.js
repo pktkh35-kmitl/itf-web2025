@@ -15,6 +15,7 @@ function change() {
 }
 
 function proceed() {
+    if (!Number(value.value)) return
     if (action.value === "deposit" && (Number(cash.value) >= Number(value.value))) {
         cash.value = Number(cash.value) - Number(value.value)
         account.value = Number(account.value) + Number(value.value)
