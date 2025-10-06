@@ -1,74 +1,184 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
 * {
-    font-family: "Noto Sans Thai";
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #0563FF 0%, #049AFF 100%);
+    min-height: 100vh;
 }
 
 nav {
-    background-color: dodgerblue;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 50px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+nav p {
     color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+nav h2 {
+    color: white;
+    font-size: 24px;
 }
 
 section {
-    flex: 1;
     display: flex;
-    padding: 20px 50px;
+    padding: 30px 50px;
 }
 
-section:not(.ver) {
-    align-items: center;
+section>img {
+    width: 100px;
+    margin-right: 50px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
-section.ver {
-    flex-direction: column;
-}
-
-section div {
-    flex: 1;
-}
-
-section textarea {
-    cursor: help;
-    width: 100%;
-    height: 400px;
-    resize: none;
-    border: 2px solid gray;
-    padding: 10px;
-    border-radius: 10px;
-    background: #121212;
+h1 {
+    font-size: 42px;
     color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+section>div>p {
+    font-size: 16px;
+}
+
+hr {
+    margin: 0 50px;
+    border: none;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ver {
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.ver>h2 {
+    color: #333;
+    font-size: 26px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #0563FF;
+}
+
+.ver section {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    margin: 10px 0;
+    align-items: flex-start;
+    transition: background 0.3s ease;
+}
+
+.ver section img {
+    width: 80px !important;
+    margin-right: 20px !important;
+}
+
+h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="number"],
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+}
+
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #0563FF;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input[readonly] {
+    background: #f8f9fa;
+    cursor: not-allowed;
 }
 
 button {
-    cursor: pointer;
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: none;
-    background: dodgerblue;
+    background: linear-gradient(135deg, #0563FF 0%, #049AFF 100%);
     color: white;
-    transition: .23s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-input {
-    padding: 5px 15px;
-    outline: none;
     border: none;
-    border-bottom: 2px solid gray;
-    transition: .23s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-input:focus {
-    border-color: dodgerblue;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 15px;
+    width: 100%;
 }
 
 button:hover {
-    background: blue;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+textarea {
+    width: 450px;
+    height: 600px;
+    padding: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: none;
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    line-height: 1.6;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
 }
