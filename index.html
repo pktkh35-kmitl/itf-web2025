@@ -4,112 +4,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>HTML FORM</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .Form {
+            display: flex;
+            flex-direction: column;
+            min-width: 14rem;
+            padding: 2rem;
+            border: 1px solid;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <nav>
-        <p>68070087</p>
-        <h2>ITF Website</h2>
-        <p>Week 14</p>
-    </nav>
-    <section>
-        <img src="./Cool.png" alt="" style="width: 100px; margin-right: 50px;">
-        <div>
-            <h1>
-                ITF Simple Bank
-            </h1>
-            <p>
-                Welcome to my first HTML + CSS + JS website!
-            </p>
-        </div>
-    </section>
-    <hr style="margin: 0 50px;">
-    <section style="align-items: flex-start;">
-        <section>
-            <textarea name="transactions" id="transactions" readonly></textarea>
-        </section>
-        <section class="ver" style="flex: 1; padding: 0;">
-            <h2>Account Overview</h2>
-            <section style="margin-top: -10px;">
-                <img src="./user.png" style="width: 100px;margin-right:20px;" alt="">
-                <div>
-                    <h3>
-                        Account Information
-                    </h3>
-                    <p>
-                        Name: Nitiphum Chimnin
-                    </p>
-                    <p>
-                        Type: Savings Account
-                    </p>
-                </div>
-            </section>
-            <section>
-                <img src="./briefcase.png" style="width: 100px;margin-right:20px;" alt="">
-                <div>
-                    <h3>
-                        Balance Information
-                    </h3>
-                    <label for="account">Current account balance:</label>
-                    <input value="1000" type="number" name="account" id="account">
-                    <br>
-                    <label for="cash">Current cash balance:</label>
-                    <input value="1000" type="number" name="cash" id="cash">
-                    <br>
-                    <button onclick="change()">
-                        Change
-                    </button>
-                </div>
-            </section>
-            <section>
-                <img src="./toolbox.png" style="width: 100px;margin-right:20px;" alt="">
-                <div>
-                    <h3>
-                        Bank Operation
-                    </h3>
-                    <select name="action" id="action">
-                        <option value="deposit">Deposit</option>
-                        <option value="withdraw">Withdraw</option>
-                    </select>
-                    <input type="number" name="value" id="value">
-                    <br>
-                    <button onclick="proceed()">Proceed</button>
-                </div>
-            </section>
-        </section>
-        <section class="ver" style="flex: 1; padding: 0;">
-            <h2>Financial Tools</h2>
-            <section style="margin-top: -10px;">
-                <img src="./calculator.png" style="width: 100px;margin-right:20px;" alt="">
-                <div>
-                    <h3>
-                        Currency Converter
-                    </h3>
-                    <label for="input">Input balance:</label>
-                    <input value="1000" type="number" name="input" id="input">
-                    <br>
-                    <label for="output">Output balance:</label>
-                    <input value="1000" type="number" name="output" id="output" readonly>
-                    <br>
-                    <label for="currency">
-                        Input Currency:
-                    </label>
-                    <select name="currency" id="currency">
-                        <option value="USD">USD</option>
-                        <option value="THB">THB</option>
-                    </select>
-                    <input value="1000" type="number" name="input_balance" id="input_balance">
-                    <br>
-                    <button onclick="change()">
-                        Change
-                    </button>
-                </div>
-            </section>
-        </section>
-    </section>
-    <script src="script.js"></script>
+    <div class="Form">
+        <h3 id="Head">FORM</h3>
+        <label for="owner">Owner:</label>
+        <input type="text" id="owner" name="owner" />
+        <br>
+
+        <label for="color">Color:</label>
+        <input type="text" id="color" name="color" />
+        <br>
+
+        <label for="type">Type:</label>
+        <select name="type" id="type">
+            <option value="Toyota">Toyota</option>
+            <option value="Isuzu">Isuzu</option>
+            <option value="Honda">Honda</option>
+            <option value="Ford">Ford</option>
+        </select>
+        <br>
+        
+        <label for="wheel">Wheel:</label>
+        <input type="text" id="wheel" name="wheel" />
+        <br>
+
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight" />
+        <br>
+
+        <button id="send">SEND</button>
+        <button id="ping">PING</button>
+        <br>
+        <textarea rows="6" style="resize: none;" readonly name="info" id="info"></textarea>
+    </div>
+
+    <script>
+
+        document.getElementById('ping').addEventListener("click", async () => {
+            const h3 = document.getElementById("Head")
+            const response = await fetch("http://localhost:3000/ping")
+
+            const text = await response.json();
+            // CHANGE H3
+            h3.textContent = text.text
+        })
+
+        document.getElementById('send').addEventListener("click", async () => {
+
+            // VALUE FROM INPUT ELEMENT BY ID
+            const type = document.getElementById("type").value;
+            const owner = document.getElementById("owner").value;
+            const color = document.getElementById("color").value;
+            const wheel = document.getElementById("wheel").value;
+            const weight = document.getElementById("weight").value;
+
+            // FETCH TO API (POST METHOD)
+            const response = await fetch("http://localhost:3000/form", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    owner: owner,
+                    color: color,
+                    type: type,
+                    wheel,
+                    weight
+                })
+            })
+
+            const text = await response.json();
+            // EDIT TEXT AREA
+            let area = document.getElementById("info");
+            area.value = `${text.owner}\n${text.color}\n${text.type}\n${text.id}\n${text.wheel}\n${text.weight}`;
+
+            // SHOW IN CONSOLE
+            console.log(text);
+        })
+    </script>
+
 </body>
 
 </html>

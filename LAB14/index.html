@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <p>68070087</p>
+        <h2>ITF Website</h2>
+        <p>Week 14</p>
+    </nav>
+    <section>
+        <img src="./Cool.png" alt="" style="width: 100px; margin-right: 50px;">
+        <div>
+            <h1>
+                ITF Simple Bank
+            </h1>
+            <p>
+                Welcome to my first HTML + CSS + JS website!
+            </p>
+        </div>
+    </section>
+    <hr style="margin: 0 50px;">
+    <section style="align-items: flex-start;">
+        <section>
+            <textarea name="transactions" id="transactions" readonly></textarea>
+        </section>
+        <section class="ver" style="flex: 1; padding: 0;">
+            <h2>Account Overview</h2>
+            <section style="margin-top: -10px;">
+                <img src="./user.png" style="width: 100px;margin-right:20px;" alt="">
+                <div>
+                    <h3>
+                        Account Information
+                    </h3>
+                    <p>
+                        Name: Nitiphum Chimnin
+                    </p>
+                    <p>
+                        Type: Savings Account
+                    </p>
+                </div>
+            </section>
+            <section>
+                <img src="./briefcase.png" style="width: 100px;margin-right:20px;" alt="">
+                <div>
+                    <h3>
+                        Balance Information
+                    </h3>
+                    <label for="account">Current account balance:</label>
+                    <input value="1000" type="number" name="account" id="account">
+                    <br>
+                    <label for="cash">Current cash balance:</label>
+                    <input value="1000" type="number" name="cash" id="cash">
+                    <br>
+                    <button onclick="change()">
+                        Change
+                    </button>
+                </div>
+            </section>
+            <section>
+                <img src="./toolbox.png" style="width: 100px;margin-right:20px;" alt="">
+                <div>
+                    <h3>
+                        Bank Operation
+                    </h3>
+                    <select name="action" id="action">
+                        <option value="deposit">Deposit</option>
+                        <option value="withdraw">Withdraw</option>
+                    </select>
+                    <input type="number" name="value" id="value">
+                    <br>
+                    <button onclick="proceed()">Proceed</button>
+                </div>
+            </section>
+        </section>
+        <section class="ver" style="flex: 1; padding: 0;">
+            <h2>Financial Tools</h2>
+            <section style="margin-top: -10px;">
+                <img src="./calculator.png" style="width: 100px;margin-right:20px;" alt="">
+                <div>
+                    <h3>
+                        Currency Converter
+                    </h3>
+                    <label for="input">Input balance:</label>
+                    <input value="" type="number" name="input" id="input">
+                    <br>
+                    <label for="output">Output balance:</label>
+                    <input value="" type="number" name="output" id="output" readonly>
+                    <br>
+                    <label for="currency">
+                        Input Currency:
+                    </label>
+                    <select name="currency" id="currency">
+                        <option value="USD">USD</option>
+                        <option value="THB">THB</option>
+                    </select>
+                    <br>
+                    <button onclick="convert()">
+                        Convert
+                    </button>
+                </div>
+            </section>
+        </section>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>

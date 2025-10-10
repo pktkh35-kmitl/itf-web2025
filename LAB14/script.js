@@ -3,6 +3,9 @@ const value = document.getElementById("value");
 const account = document.getElementById("account");
 const cash = document.getElementById("cash");
 const transactions = document.getElementById("transactions");
+const input = document.getElementById("input");
+const output = document.getElementById("output");
+const currency = document.getElementById("currency");
 let count = 1
 
 function addlog(text) {
@@ -29,6 +32,20 @@ function proceed() {
     }
 
     addlog(", Couldn't deposit entered balance. (Insufficient cash balance)")
+}
+
+async function convert() {
+    const response = await fetch("http://localhost:3000/convert", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            input: Number(input.value),
+            type: currency.value
+        })
+    });
+    const text = await response.json();
+
+    output.value = text.amount;
 }
 
 addlog(", Current account balance: " + account.value + ", Current cash balance: " + cash.value)
